@@ -4,11 +4,9 @@ netLogoExtName      := "hello-java"
 
 netLogoClassManager := "HelloJavaExtension"
 
-scalaVersion           := "2.11.7"
-
 javaSource in Compile := baseDirectory.value / "src"
 
-scalacOptions          ++= Seq("-deprecation", "-unchecked", "-Xfatal-warnings", "-encoding", "us-ascii")
+javacOptions ++= Seq("-deprecation")
 
 netLogoVersion := "6.0.0-M4"
 
