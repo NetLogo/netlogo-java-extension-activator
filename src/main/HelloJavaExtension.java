@@ -1,5 +1,3 @@
-package main;
-
 import org.nlogo.api.*;
 import org.nlogo.core.Syntax;
 import org.nlogo.core.SyntaxJ;
@@ -25,14 +23,15 @@ public class HelloJavaExtension extends DefaultClassManager {
     public static class Wiggle implements Command {
         @Override
         public Syntax getSyntax() {
-            return SyntaxJ.commandSyntax(new int[] {});
+            return SyntaxJ.commandSyntax(new int[] {Syntax.NumberType()});
         }
 
         @Override
         public void perform(Argument[] args, Context context) throws ExtensionException {
+            Double angle = args[0].getDoubleValue();
             Turtle anAgent;
             anAgent = (Turtle)context.getAgent();
-            anAgent.heading(anAgent.heading() + Math.random() * 25 - Math.random() * 25);
+            anAgent.heading(anAgent.heading() + Math.random() * angle - Math.random() * angle);
         }
 
     }
