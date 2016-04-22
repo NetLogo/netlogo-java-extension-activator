@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NetLogo Extension Tutorial</title>
+    <base target="_blank">
+  </head>
+  <body>
+
+    <div>
+      <h2>First steps</h2>
+      <p>This template comes with everything you need to build an extension. You can find all of the extension code in <a href="#code/src/main/HelloJavaExtension.java">the code tab, under src/main/HelloJavaExtension.java</a>.</p>
+      <p>To build your extension:
+      <ol>
+        <li>Either press this button, or type <code>package</code> and hit enter in the search bar on the top: <button data-exec="package">Package</button></li>
+        <li>Go to the extensions folder. You can get their quickly by going to the <a href="#code">code tab</a>, hitting the "..." next to <b>Browse Code</b>, and clicking <b>Reveal in system</b>.</li>
+        <li>In the extension folder, you should see <b>hello-java.zip</b> (or something else if you've changed the extension name). Unzip it to get a <b>hello-java</b> folder that contains <b>hello-java.jar</b>.</li>
+        <li>Drag the <b>hello-java</b> folder to your NetLogo extensions folder.</li>
+        <li>Startup NetLogo, put <code>extensions [ hello-java ]</code> in your code tab. Run <code>hello-java:hello "Your Name"</code>.</li>
+    </div>
+
+    <div>
+      <h2>Try to implement these!</h2>
+      <h3>Goodbye!</h3>
+      <p>Make a <code>goodbye</code> primitive, just like the <code>hello</code>.</p>
+
+      <h3>Current time in milliseconds</h3>
+      <p>Try to implement a reporter that returns the current time in milliseconds. You can use <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/System.html#currentTimeMillis--"><code>System.currentTimeMillis()</code></a> to get the current time in milliseconds. To return a number from a primitive, make sure you cast it as a Double.</p>
+
+      <h3>String repeater</h3>
+      <p>Try to implement a reporter that takes a string and a number and returns that string repeated that number of times. For instance, <code>hello-scala:repeat-string "hello" 3</code> would return <code>"hellohellohello"</code>. You can access the first argument to a primitive with <code>args[0]</code> and the second argument to a primitive with <code>args[1]</code>.</p>
+
+      <h3>List joiner</h3>
+      <p>Try to implement a reporter that takes a list and string and returns the items of the list, concatenated together, separated by the string. For instance, <code>hello-scala:join ["one" "two" "three"] ","</code> should return <code>"one,two,three"</code>.</p>
+      <p>To get a list from an argument, use <code>args[[0].getList</code>. This gives you a <a href="https://ccl.northwestern.edu/netlogo/6.0-M5/scaladoc/scaladoc/#org.nlogo.core.LogoList"><code>LogoList</code></a>. Then, to join the elements of the list together, turn the <code>LogoList</code> into a <code>List</code>, iterate over it, and append each String from inside it.</p>
+
+      <h3>String splitter</h3>
+      <p>Create a reporter that takes two strings, and splits the first string around occurrences of the second string. For instance, <code>hello-scala:split "one,two,three" ","</code> should return <code>["one" "two" "three"]</code>.</p>
+      <p>You can split a string like this in Java by doing <code>str.split(delim)</code>, where <code>str</code> is the variable containing the string you want to split, and <code>delim</code> contains the string you want to split around. This will give you a String[] array. To return this, you must first convert it to a <a href="https://ccl.northwestern.edu/netlogo/6.0-M5/scaladoc/scaladoc/#org.nlogo.core.LogoList"><code>LogoList</code></a>. To do this, create a <code>LogoListBuilder</code> object, iterate over your <code>String</code> array and append each element to your <code>LogoListBuilder</code>. Finally return a <code>LogoList</code> with the <code>LogoListBuilder.toLogoList()</code> method.
+
+      <h3>Move left and right</h3>
+      <p>Create two commands that tell turtles to move a number units sideways: one for left and one for right. You can base these commands off of <code>Wiggle</code>. To have a turtle move forward, use <a href="https://ccl.northwestern.edu/netlogo/6.0-M5/scaladoc/scaladoc/#org.nlogo.api.Turtle"><code>turtle.jump(x)</code></a>, where <code>x</code> is the distance you want them to move forward.</p>
+    </div>
+  </body>
+</html>
